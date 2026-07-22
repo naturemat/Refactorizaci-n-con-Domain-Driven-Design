@@ -23,6 +23,8 @@ public class CrearReservacionUseCase {
         Usuario usuario = usuarioRepository.findByID(request.getId_usuario());
         Laboratorio laboratorio = laboratorioRepository.findById(request.getCodigo_lab());
 
+        new Descripcion descripcion = request.getDescripcion();
+
 
         return new CrearReservacionResponse("Reserva creada");
     }
