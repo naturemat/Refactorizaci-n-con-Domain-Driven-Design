@@ -1,5 +1,9 @@
 package application.useCase;
 
+import domain.*;
+import application/dto.*;
+
+
 public class CrearReservacionUseCase {
 
     private final UsuarioRepository UsuarioRepository;
@@ -16,7 +20,10 @@ public class CrearReservacionUseCase {
 
     public CrearNovedadResponse execute(CrearNovedadRequest request) {
 
+        Usuario usuario = usuarioRepository.findByID(request.getId_usuario());
+        Laboratorio laboratorio = laboratorioRepository.findById(request.getCodigo_lab());
 
-        return new CrearReservacionResponse(total, "Reserva creada");
+
+        return new CrearReservacionResponse("Reserva creada");
     }
 }
